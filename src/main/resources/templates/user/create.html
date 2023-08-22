@@ -95,11 +95,12 @@
                                                     <label>Gender</label><br>
                                                     <label class="custom-control custom-radio custom-control-inline">
                                                         <input th:value="Male" th:field="*{gender}" type="radio"
-                                                        name="radio-inline" class="custom-control-input"><span
+                                                               name="radio-inline" class="custom-control-input"><span
                                                             class="custom-control-label">Male</span>
                                                     </label>
                                                     <label class="custom-control custom-radio custom-control-inline">
-                                                        <input th:value="Female" th:field="*{gender}" type="radio" name="radio-inline"
+                                                        <input th:value="Female" th:field="*{gender}" type="radio"
+                                                               name="radio-inline"
                                                                class="custom-control-input"><span
                                                             class="custom-control-label">Female</span>
                                                     </label>
@@ -111,8 +112,9 @@
                                                 <div class="form-group">
                                                     <label>Choose a Role</label>
                                                     <select th:field="*{role}" name="role" class="custom-select">
-                                                        <option th:value="''" th:text=" Select"> </option>
-                                                        <option th:each="role : ${roles}" th:value="${role.id}" th:text="${role.description}"></option>
+                                                        <option th:value="''" th:text=" Select"></option>
+                                                        <option th:each="role : ${roles}" th:value="${role.id}"
+                                                                th:text="${role.description}"></option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -165,12 +167,12 @@
 
                                             <tbody>
 
-                                            <tr>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
+                                            <tr th:each="user: ${users}">
+                                                <td th:text="${user.firstName + ' ' + user.lastName}"></td>
+                                                <td th:text="user.userName"></td>
+                                                <td th:text="user.gender.value"></td>
+                                                <td th:text="user.phone"></td>
+                                                <td th:text="user.role.description"></td>
                                                 <td class="actions">
                                                     <a href="#">
                                                         <button type="button" class="btn btn-warning btn-sm">Update
