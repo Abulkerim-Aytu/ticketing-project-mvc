@@ -22,7 +22,7 @@ public class ProjectController {
 
         model.addAttribute("project", new ProjectDTO());
 
-        model.addAttribute("managers", userService.findAll());
+        model.addAttribute("managers", userService.findManagers());
 
         model.addAttribute("projects", projectService.findAll());
 
