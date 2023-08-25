@@ -57,7 +57,7 @@ public class TaskServiceImpl extends AbstractMapService<TaskDTO,Long> implements
 
     }
 
-        @Override
+    @Override
     public List<TaskDTO> findTasksByManager(UserDTO manager) {
         return findAll().stream()
                 .filter(task -> task.getProject().getAssignedManager().equals(manager))
@@ -81,6 +81,5 @@ public class TaskServiceImpl extends AbstractMapService<TaskDTO,Long> implements
         findById(task.getId()).setTaskStatus(task.getTaskStatus());     // First, status is updated
         update(task);     // Second, task is updated with the new status information
     }
-
 
 }
