@@ -13,11 +13,13 @@ import java.util.stream.Collectors;
 
 @Service
 public class TaskServiceImpl extends AbstractMapService<TaskDTO,Long> implements TaskService {
+
     @Override
     public TaskDTO save(TaskDTO task) {
 
         if(task.getTaskStatus() == null)
             task.setTaskStatus(Status.OPEN);
+
         if(task.getAssignedDate() == null)
             task.setAssignedDate(LocalDate.now());
 
@@ -25,6 +27,7 @@ public class TaskServiceImpl extends AbstractMapService<TaskDTO,Long> implements
             task.setId(UUID.randomUUID().getMostSignificantBits());
 
         return super.save(task.getId(),task);
+
     }
 
     @Override
@@ -51,6 +54,7 @@ public class TaskServiceImpl extends AbstractMapService<TaskDTO,Long> implements
         task.setAssignedDate(foundTask.getAssignedDate());
 
         super.update(task.getId(),task);
+
     }
 
     @Override
