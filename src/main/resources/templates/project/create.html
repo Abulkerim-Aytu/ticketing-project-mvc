@@ -26,13 +26,13 @@
 
                             <section class="panel panel-transparent">
                                 <header class="panel-heading">
-                                    <h2 class="panel-title">Project Update</h2>
+                                    <h2 class="panel-title">Project Create</h2>
                                 </header>
 
                                 <div class="panel-body">
 
                                     <!-- ------------------------FORM START----------------------------- -->
-                                    <form th:action="@{/project/update}" method="post" th:object="${project}">
+                                    <form th:action="@{/project/create}" method="post" th:object="${project}">
                                         <div class="row">
                                             <div class="col">
                                                 <div class="form-group">
@@ -51,7 +51,7 @@
                                             <div class="col">
                                                 <div class="form-group">
                                                     <label for="projectcode" class="col-form-label">Project Code</label>
-                                                    <input id="projectcode" th:field="*{projectCode}"  type="text" class="form-control" readonly placeholder="project code">
+                                                    <input id="projectcode" th:field="*{projectCode}"  type="text" class="form-control" placeholder="project code">
                                                     <div class="invalid-feedback" th:if="${#fields.hasErrors('projectCode')}">
                                                         <ul>
                                                             <li th:each="err : ${#fields.errors('projectCode')}"
